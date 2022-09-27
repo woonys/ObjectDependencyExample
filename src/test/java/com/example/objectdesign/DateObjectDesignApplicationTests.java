@@ -7,7 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class DateObjectDesignApplicationTests {
 
     @Test
-    void contextLoads() {
+    void test() {
+
     }
 
 }
