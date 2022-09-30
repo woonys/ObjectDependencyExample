@@ -1,5 +1,11 @@
 package com.example.objectdesign;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.when;
+
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -22,6 +28,7 @@ public class DateObjectEvaluationProcessorTest {
 
     @Test
     void test() {
+        when(dateObjectService.getDateObject(any())).thenReturn(new DateObject(1L, Timestamp.valueOf(LocalDateTime.now())));
 
     }
 }

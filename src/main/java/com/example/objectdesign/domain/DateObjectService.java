@@ -17,10 +17,17 @@ public class DateObjectService {
         this.injectionC = injectionC;
     }
 
+    public DateObject getDateObject(DateObject object) {
+        return object;
+    }
+
     public void updateObjectDateTime(DateObject dobj, Timestamp updateTime) {
-        DateObjectEvaluationProcessor.isDateAlive(dobj);
-        dobj.setUpdatedAt(updateTime);
-        dateObjectRepository.save(dobj);
+        if (DateObjectEvaluationProcessor.isDateAlive(dobj)) {
+            dobj.setUpdatedAt(updateTime);
+            dateObjectRepository.save(dobj);
+        } else {
+            System.out.println("This object is expired.");
+        }
     }
 
 }
